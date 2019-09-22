@@ -130,5 +130,5 @@
 - 2 ``` docker version ```
 - 3 ``` docker sytem ifno ```
 - 4 ``` docker images ``` or ``` docker image ls ```
-- 5 ``` docker containers ``` or ``` docker container ls ```
+- 5 ``` docker container ls ```
 - 6 ``` docker run hello-world ```
