@@ -14,6 +14,7 @@
 # Docker 安装 on Ubuntu
 ## Set up Docker's repositories
 - 1 Update the **apt** package index:
+
   ``` $ sudo apt-get update ```
 
 ## Download the Deb package and install it manually
