@@ -53,6 +53,52 @@
   uid                  Docker Release (CE deb) <docker@docker.com>
   sub   4096R/F273FCD8 2017-02-22 
   ```
+  
+- 5 Use the following command to set up the **stable** repository. To add the nightly or test repository, add the work ``` nightly ``` or ``` test ``` (or both) after the work ``` stable ``` in the commands below.
+
+  ```
+  $ sudo add-apt-repository \
+    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+    $(lsb_release -cs) \
+    stable"
+  ```
+- 6 Update the **apt** package index.
+
+  ``` $ sudo apt-get update ```
+ 
+- 7 Install the latest version of Docker Engine - Community and containerd
+  
+  ``` $ sudo apt-get install docker-ce docker-ce-cli containerd.io ```
+  
+- 8　Or go to the next step to install specific version
+  - List the versions available in your repo:
+  
+    ```
+    $ apt-cache madison docker-ce
+     docker-ce | 5:19.03.2~3-0~ubuntu-xenial | https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages
+     docker-ce | 5:19.03.1~3-0~ubuntu-xenial | https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages
+     docker-ce | 5:19.03.0~3-0~ubuntu-xenial | https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages
+     docker-ce | 5:18.09.9~3-0~ubuntu-xenial | https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages
+     docker-ce | 5:18.09.8~3-0~ubuntu-xenial | https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages
+     docker-ce | 5:18.09.7~3-0~ubuntu-xenial | https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages
+     docker-ce | 5:18.09.6~3-0~ubuntu-xenial | https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages
+     docker-ce | 5:18.09.5~3-0~ubuntu-xenial | https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages
+     docker-ce | 5:18.09.4~3-0~ubuntu-xenial | https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages
+     docker-ce | 5:18.09.3~3-0~ubuntu-xenial | https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages
+     docker-ce | 5:18.09.2~3-0~ubuntu-xenial | https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages
+     docker-ce | 5:18.09.1~3-0~ubuntu-xenial | https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages
+     docker-ce | 5:18.09.0~3-0~ubuntu-xenial | https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages
+    ```
+  - Install a specific version using the version string from the second column, for example, ``` 5:19.03.2~3-0~ubuntu-xenial ```
+    ```
+    $ sudo apt-get install \
+      docker-ce=5:19.03.2~3-0~ubuntu-xenial \
+      docker-ce-cli=5:19.03.2~3-0~ubuntu-xenial \
+      containerd.io
+   ```
+- 9 Verify that Docker Engine - Community is installed correctly by running the ``` hello-world ``` image.
+  
+  ``` $ sudo docker run hello-world ```
 
 
 ## Download the Deb package and install it manually
