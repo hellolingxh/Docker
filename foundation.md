@@ -123,6 +123,11 @@
   - Btrfs
   - ZFS
 - 4 Docker在Windows操作系统上只支持一种存储驱动，即 ``` Windows Filter ```
+- 5 存储驱动的选择是节点级别的，每个Docker主机只能选择一种存储驱动，而不能为每个容器选择不同的存储区动
+- 6 可以通过修改/etc/docker/daemon.json文件来修改存储引擎配置，修改完成后需要重启Docker才能生效
+  ```
+  如果修改了正在运行Docker主机的存储引擎类型，则现有的镜像在重启之后将不可用，这是因为每种存储驱动在主机上存储镜像层的位置是不同的(/var/docker/<storage-driver>/...目录下)。修改了存储驱动类型，Docker就无法找到原有的镜像和容器了。切换到原来的存储驱动，之前的镜像和容器就可以继续使用了。若希望在切换存储引擎之后还能够继续使用之前的镜像和容器，需要将镜像保存为Docker格式，上传到某个镜像仓库，修改本地Docker存储引擎
+  ```
 
 # Docker Image
 - 1 It is a object that includes OS filesystem and applications. 类似于虚拟机模板或将它视为一个Java Class
