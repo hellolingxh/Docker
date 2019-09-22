@@ -140,7 +140,13 @@
 - 5 镜像拉取命令：
 
 # Docker Container
-- 1 Define a container with ``` Dockefile ``` portable images are defined,for example:
+- 1 A Container is a runnable instance of an Image
+- 2 You can create, start, stop, move, or delete a container using Docker API or CLI
+- 3 You can connect a container to one or more networks
+- 4 You can attach storage to it
+- 5 You can create a new image based on its current state
+- 6 You can control how isolated a container's network,storage,or other underlying subsystems are from other containers or from the host machine
+- 7 Define a container with ``` Dockefile ``` portable images are defined,for example:
 
     ```
     # Use an official Python runtime as a parent image
@@ -164,6 +170,13 @@
     # Run app.py when the container launches
     CMD ["python", "app.py"]
     ```
+# Docker Services
+- 1 It allows you to scale containers across multiple Docker daemons,which all work together as a swarm with multiple managers and workers.
+- 2 Each member of a SWARM is a Docker daemon, and the daemons all communicate using the DOcker API.
+- 3 A service allows you to define the desired state, such as the number of replicas of the service that must be available at any given time.
+- 4 By default, the service is load-balanced across all worker nodes.
+- 5 To the consumer, the Docker service appears to be a single applicatoin.
+- 6 Docker Engine supports swarm mode in Docker 1.12 and higher.
 
 # Docker Hub
 
