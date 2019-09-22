@@ -172,13 +172,32 @@
     ```
 # Docker Services
 - 1 It allows you to scale containers across multiple Docker daemons,which all work together as a swarm with multiple managers and workers.
-- 2 Each member of a SWARM is a Docker daemon, and the daemons all communicate using the DOcker API.
+- 2 Each member of a SWARM is a Docker daemon, and the daemons all communicate using the Docker API.
 - 3 A service allows you to define the desired state, such as the number of replicas of the service that must be available at any given time.
 - 4 By default, the service is load-balanced across all worker nodes.
 - 5 To the consumer, the Docker service appears to be a single applicatoin.
 - 6 Docker Engine supports swarm mode in Docker 1.12 and higher.
 
 # Docker Hub
+暂略
+
+# Docker underlying technology
+## Namespaces
+- 1 To provide the isolated workspace called the container,when you run a container,Docker creates a set of namespace for that container.
+- 2 To provide a layer of isolation, each aspect of a container runs in a separate namespace and its access is limited to that namespace.
+- 3 Using namespace such as the following on Linux:
+  - The **pid** namespace: Process isolation (PID: Process ID)
+  - The **net** namespace: Managing network interfaces (NET:Networking)
+  - The **ipc** namespace: Managing accessto IPC resources (IPC:InterProcess Communication)
+  - The **mnt** namespace: Managing filesystem mount points (MNT:Mount)
+  - The **uts** namespace: Isolating kernel and version identifiers (UTS: Unix Timesharing System)
+  
+## Control groups
+
+
+## Union file systems
+
+## Container format
 
 # Docker 本章所提及的 Commands
 - 1 ``` docker --version ```
