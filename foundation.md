@@ -111,10 +111,13 @@
 
 
 ## Download the Deb package and install it manually
+暂略
 
 ## Use automated convenience scripts to install Docker in testing and development environment
 
+
 # Docker 升级 on Ubuntu
+暂略
 
 # Docker 存储驱动
 - 1 每个Docker容器都有一个本地存储空间,用于保存层叠的镜像层(Image Layer)以及挂载的容器文件系统
