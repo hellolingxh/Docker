@@ -96,8 +96,7 @@
       docker-ce=5:19.03.2~3-0~ubuntu-xenial \
       docker-ce-cli=5:19.03.2~3-0~ubuntu-xenial \
       containerd.io
-   ```
-   
+   ``` 
 - 9 Verify that Docker Engine - Community is installed correctly by running the ``` hello-world ``` image.
   
   ``` $ sudo docker run hello-world ```
