@@ -5,12 +5,20 @@
 - 4 Features:Batteries included but removable
 - 5 两个主要组件：Docker Client & Docker Daemon. 它们之间的通信是通过本地IPC/UNIX Socket完成的(/var/run/docker.sock)
 - 6 查看详细版本信息执行: docker verion
+- 7 主要使用Go语言实现
 
 # 开放容器计划 OCI
 - 1 旨在对容器基础架构中的基础组件(如镜像格式与容器运行时)进行标准化的管理委员会
 - 2 在Linux基金会的支持下运作，Docker公司与CoreOS公司都是主要贡献者
 
 # Docker 安装 on Ubuntu
+## Set up Docker's repositories
+- 1 Update the **apt** package index:
+  ``` $ sudo apt-get update ```
+
+## Download the Deb package and install it manually
+
+## Use automated convenience scripts to install Docker in testing and development environment
 
 # Docker 升级 on Ubuntu
 
