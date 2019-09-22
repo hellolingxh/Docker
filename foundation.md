@@ -8,6 +8,9 @@
 - 7 可以使用 ``` docker version ``` 来检测客户端和服务端是否都已经成功运行, 
 - 7 主要使用Go语言实现
 
+# Docker Architecture
+![](https://docs.docker.com/engine/images/architecture.svg)
+
 # 开放容器计划 OCI
 - 1 旨在对容器基础架构中的基础组件(如镜像格式与容器运行时)进行标准化的管理委员会
 - 2 在Linux基金会的支持下运作，Docker公司与CoreOS公司都是主要贡献者
@@ -137,6 +140,30 @@
 - 5 镜像拉取命令：
 
 # Docker Container
+- 1 Define a container with ``` Dockefile ``` portable images are defined,for example:
+
+    ```
+    # Use an official Python runtime as a parent image
+    FROM python:2.7-slim
+
+    # Set the working directory to /app
+    WORKDIR /app
+
+    # Copy the current directory contents into the container at /app
+    COPY . /app
+
+    # Install any needed packages specified in requirements.txt
+    RUN pip install --trusted-host pypi.python.org -r requirements.txt
+
+    # Make port 80 available to the world outside this container
+    EXPOSE 80
+
+    # Define environment variable
+    ENV NAME World
+
+    # Run app.py when the container launches
+    CMD ["python", "app.py"]
+    ```
 
 # Docker Hub
 
