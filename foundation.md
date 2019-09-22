@@ -5,6 +5,7 @@
 - 4 Features:Batteries included but removable
 - 5 两个主要组件：Docker Client & Docker Daemon. 它们之间的通信是通过本地IPC/UNIX Socket完成的(/var/run/docker.sock)
 - 6 查看详细版本信息执行: docker verion
+- 7 可以使用 ``` docker version ``` 来检测客户端和服务端是否都已经成功运行, 
 - 7 主要使用Go语言实现
 
 # 开放容器计划 OCI
@@ -113,6 +114,15 @@
 # Docker 升级 on Ubuntu
 
 # Docker 存储驱动
+- 1 每个Docker容器都有一个本地存储空间,用于保存层叠的镜像层(Image Layer)以及挂载的容器文件系统
+- 2 默认情况下，容器的所有读写操作都发生在其镜像层上或挂载的文件系统上，所以存储是每个容器的性能和稳定性不可或缺的一个环节
+- 3 Docker在Linux底层支持几种不同的存储驱动的具体实现，每一种实现方式都采用不同方法实现了镜像层和写时复制(Copy-on-Write)，对Docker性能和稳定性至关重要。这些存储驱动包括：
+  - AUFS
+  - Overlay2
+  - Device Mapper
+  - Btrfs
+  - ZFS
+- 4 Docker在Windows操作系统上只支持一种存储驱动，即 ``` Windows Filter ```
 
 # Docker Image
 - 1 It is a object that includes OS filesystem and applications. 类似于虚拟机模板或将它视为一个Java Class
