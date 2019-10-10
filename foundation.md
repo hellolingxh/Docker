@@ -15,6 +15,7 @@
 # 开放容器计划 OCI
 - 1 旨在对容器基础架构中的基础组件(如镜像格式与容器运行时)进行标准化的管理委员会
 - 2 在Linux基金会的支持下运作，Docker公司与CoreOS公司都是主要贡献者
+- 3 Docker 已基本实现由OCI发布的镜像和容器标准，这意味着读者在Docker容器上的学习，同样可以在其他实现了OCI标准的容器运行
 
 # Docker 安装 on Ubuntu
 ## Set up Docker's repositories
