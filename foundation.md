@@ -6,7 +6,8 @@
 - 5 两个主要组件：Docker Client & Docker Daemon. 它们之间的通信是通过本地IPC/UNIX Socket完成的(/var/run/docker.sock)
 - 6 查看详细版本信息执行: docker verion
 - 7 可以使用 ``` docker version ``` 来检测客户端和服务端是否都已经成功运行, 
-- 7 主要使用Go语言实现
+- 8 主要使用Go语言实现
+- Docker最值得称赞的就是使用方便，运行一个应用就像拉取镜像并运行容器这么简单，无须担心安装，依赖或者配置的问题。
 
 # Docker Architecture
 ![](https://docs.docker.com/engine/images/architecture.svg)
