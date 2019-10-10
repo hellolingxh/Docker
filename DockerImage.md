@@ -98,6 +98,7 @@
     - Btrfs
     - ZFS  
   - Windows上仅支持windowsfilter一种存储引擎，基于NTFS文件系统上实现了分层和CoW
+- 
 
 ＃　共享镜像层
 - 多个镜像之间可以也确实会共享镜像层，这样可以有效节省空间并提升性能
@@ -118,7 +119,35 @@
 - 内容寻址存储模型极大提升了镜像的安全性，也解决了随机生成镜像和镜像层ID这种方式可能导致的ID冲突问题
 
 # 多层架构的镜像
+- Docker(镜像和镜像仓库服务)规范目前支持多架构镜像，这意味着一个镜像标签下可以支持多个平台和架构,为了实现该特性，镜像仓库服务API支持两种重要结构:
+  - Manifest List: 列出支持的架构列表,列表中的每一项都含有一个指针，指向对应的Manifest File
+  - Manifest File: 出现在架构列表中的平台都有对应的Manifest File, 包含了镜像配置和镜像层数据
+  - 在发布镜像时，Manifest List是可选的，若无Manifest List的情况下，镜像仓库服务会返回普通的Manifest
+- Multi-architecture Image: 无须考虑镜像是否与当前运行环境的架构匹配
+  - 当Docker Client调用Docker Hub镜像仓库服务相应API进行拉取，
+  - 若该镜像存在Manifest列表则找到该Manifest File
+  - 解析出组成该镜像的镜像层加密ID
+  - 最后从Docker Hub二进制存储中拉取每个镜像层
+- Docker本身能识别Host的架构或平台，然后自动完成对应架构的镜像拉取
 
+# 删除镜像
+- 当不再需要某镜像时，可以通过命令从Docker Host删除该镜像
+  - $ docker image rm
+  - 该命令会在当前主机上删除该镜像以及相关的镜像层和包含镜像层数据的目录也会被删除
+  - 若某个镜像层被多个镜像共享,那只有当全部依赖该镜像层的镜像都被删除后，该镜像层才会被删除
+  - 被执行删除的镜像不能有存在的容器正在运行它
+  - 删除Host上的所有镜像
+    - $ docker image rm $(docker image ls -q) -f
+  - Windows环境中，只有在PowerShell终端中才可以执行，CMD中执行不会生效
 
-      
+# 镜像常用命令
+- docker image pull
+  - 默认会从Docker Hub的仓库中拉取
+- docker image ls
+  - docker image ls --digests 来查看镜像的SHA256签名
+- docker image inspect
+  - 查看镜像细节，包括镜像层数据和元数据
+- docker image rm
+  - 当镜像存在关联的容器，并且容器处于运行(Up)或者停止(Exited)状态时，不允许删除该镜像
+
   
